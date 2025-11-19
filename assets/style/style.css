@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eef2f5;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+}
+
+.sidebar {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.user-blue {
+  border-right: 1px solid #e1e1e1;
+}
+
+.user-green {
+  border-left: 1px solid #e1e1e1;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+.user-blue .avatar {
+  border-color: #3b82f6;
+}
+
+.user-green .avatar {
+  border-color: #10b981;
+}
+
+.status-dot {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.user-blue .status-dot {
+  background-color: #3b82f6;
+}
+
+.user-green .status-dot {
+  background-color: #10b981;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.textUser {
+  flex: 1;
+  padding: 12px 15px;
+  border: 2px solid #e1e1e1;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
+  background-color: #fff;
+}
+
+.user-blue .textUser:focus {
+  border-color: #3b82f6;
+}
+
+.user-green .textUser:focus {
+  border-color: #10b981;
+}
+
+.botao {
+  width: 50px;
+  height: 45px;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-blue {
+  background-color: #3b82f6;
+}
+
+.btn-blue:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+.btn-green {
+  background-color: #10b981;
+}
+
+.btn-green:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+}
+
+#chat {
+  flex: 1;
+  background-image: url("../imgs/fundo_mensagem.png");
+  background-repeat: repeat;
+  background-size: 400px;
+  background-color: #e5ddd5;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  scroll-behavior: smooth;
+}
+
+#chat::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#chat::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.mensagem,
+#mensagem_azul,
+#mensagem_verde {
+  max-width: 70%;
+  padding: 15px 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  word-wrap: break-word;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  animation: popIn 0.3s ease forwards;
+}
+
+#mensagem_azul {
+  align-self: flex-start;
+  background-color: #fff;
+  color: #333;
+  border-left: 5px solid #3b82f6;
+  border-radius: 15px 15px 15px 0;
+}
+
+#mensagem_verde {
+  align-self: flex-end;
+  background-color: #d1fae5;
+  color: #064e3b;
+  border-right: 5px solid #10b981;
+  border-radius: 15px 15px 0 15px;
+}
+
+.textosChat {
+  margin: 0;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .profile-container {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+  }
+
+  h2 {
+    display: none;
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .input-area {
+    width: auto;
+    flex: 1;
+  }
+
+  #chat {
+    flex: 1;
+    padding: 10px;
+  }
+
+  #user1 {
+    order: 1;
+    border-bottom: 1px solid #ccc;
+  }
+  #chat {
+    order: 2;
+  }
+  #user2 {
+    order: 3;
+    border-top: 1px solid #ccc;
+  }
+}
